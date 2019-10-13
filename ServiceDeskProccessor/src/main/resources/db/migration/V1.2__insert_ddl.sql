@@ -1,0 +1,11 @@
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-121','TEST1','test1@test.com','Description-1','OPEN',1,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-122','TEST2','test2@test.com','Description-2','PROCESS',1,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-123','TEST3','test3@test.com','Description-3','CLOSE',1,false,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-124','TEST4','test4@test.com','Description-4','OPEN',2,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-125','TEST5','test5@test.com','Description-5','PROCESS',3,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-126','TEST6','test6@test.com','Description-6','OPEN',4,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-127','TEST7','test7@test.com','Description-7','PROCESS',5,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-128','TEST8','test8@test.com','Description-8','OPEN',1,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-129','TEST9','test9@test.com','Description-9','OPEN',2,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-130','TEST10','test10@test.com','Description-10','OPEN',1,true,CURRENT_DATE,NULL);
+insert into public.ticket values (nextval('ticket_id_seq'),'ABC-131','TEST11','test11@test.com','Description-11','OPEN',5,true,CURRENT_DATE,NULL);
