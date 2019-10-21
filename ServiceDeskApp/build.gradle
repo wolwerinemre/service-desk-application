@@ -1,0 +1,56 @@
+description = 'Service Desk App frontend'
+
+def webappDir = "${projectDir}/service-desk-app"
+
+processResources {
+    dependsOn "buildAngular"
+}
+
+List<String> createParameters(List<String> init) {
+    List<String> parameters = new ArrayList()
+    parameters.add(System.getProperty("os.name").toUpperCase().contains("WINDOWS") ? "npm.cmd" : "npm")
+    parameters.addAll(init)
+    if (project.hasProperty('silent')) {
+        parameters.add("--")
+        parameters.add("--no-progress")
+    }
+    return parameters
+}
+
+bootJar() {
+    dependsOn 'buildAngular'
+    into('BOOT-INF/classes/app') {
+        from "${webappDir}/dist"
+        include '**/**'
+    }
+}
+
+task buildAngular(type:Exec) {
+    dependsOn "installAngular"
+    workingDir "$webappDir"
+    inputs.dir "$webappDir"
+	outputs.dir "$webappDir/dist"
+    group = BasePlugin.BUILD_GROUP
+    commandLine createParameters(["run", "build"])
+}
+
+task testAngular(type: Exec) {
+    dependsOn "installAngular"
+    workingDir "$webappDir"
+    inputs.dir "$webappDir"
+    outputs.dir "$webappDir/dist"
+    group = BasePlugin.BUILD_GROUP
+    commandLine createParameters(["run", "test"])
+}
+
+task installAngular(type:Exec) {
+    workingDir "$webappDir"
+    inputs.dir "$webappDir"
+	outputs.dir "$webappDir/dist"
+    group = BasePlugin.BUILD_GROUP
+    if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
+        commandLine "npm.cmd", "install", "--no-optional", "--no-shrinkwrap"
+    } else {
+        commandLine "npm", "install", "--no-optional", "--no-shrinkwrap"
+    }
+}

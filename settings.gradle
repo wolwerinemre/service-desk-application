@@ -9,5 +9,5 @@
 
 rootProject.name = 'ServiceDesk'
 
-include 'ServiceDeskProccessor',
-        'ServiceDeskApp'
+include ':ServiceDeskProccessor',
+        ':ServiceDeskApp'

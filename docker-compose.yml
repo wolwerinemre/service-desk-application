@@ -1,0 +1,44 @@
+version: "3.7"
+
+services:
+  service-desk-app:
+    image: service-desk-app
+    build:
+      context: ./ServiceDeskApp
+      dockerfile: Dockerfile
+    ports:
+      - target: 80
+        published: 8082
+        protocol: tcp
+        mode: host
+    depends_on:
+      - service-desk-proccessor
+    networks:
+      - webnet
+
+  service-desk-proccessor:
+    image: service-desk-proccessor
+    build:
+      context: ./ServiceDeskProccessor
+      dockerfile: Dockerfile
+    volumes:
+    - /tmp:/tmp
+    - /etc:/etchost:ro
+    ports:
+    - target: 8080
+      published: 8080
+      protocol: tcp
+      mode: host
+    - target: 8081
+      published: 8081
+      protocol: tcp
+      mode: host
+    networks:
+    - webnet
+    environment:
+    - "SPRING_PROFILES_ACTIVE=[PROFILE]"
+    - "JAVA_OPTS=[JAVA_OPTS]"
+
+networks:
+    webnet:
+      driver: bridge

@@ -25,6 +25,8 @@ task generateApi {
 		}
 	}
 }
+
+
 dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-web"
 	implementation "org.springframework.boot:spring-boot-starter-actuator"
@@ -38,6 +40,7 @@ dependencies {
 	implementation "com.github.dozermapper:dozer-spring-boot-starter"
 	implementation "io.springfox:springfox-swagger2"
 	implementation "io.springfox:springfox-swagger-ui"
+	implementation "org.slf4j:slf4j-jdk14"
 	runtimeOnly "com.h2database:h2"
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	testImplementation "org.springframework.boot:spring-boot-starter-test"

@@ -26,10 +26,13 @@ apply plugin: 'idea'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-allprojects {
+subprojects {
 
     apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
+
+    compileJava.dependsOn(processResources)
 
     repositories {
         mavenCentral()
@@ -48,6 +51,7 @@ allprojects {
             dependency "io.springfox:springfox-swagger2:${swaggerVersion}"
             dependency "io.springfox:springfox-swagger-ui:${swaggerVersion}"
             dependency "com.h2database:h2:${h2Version}"
+            dependency "org.slf4j:slf4j-jdk14:${slf4jVersion}"
             dependency "org.springframework.boot:spring-boot-configuration-processor:${springBootVersion}"
             dependency "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
             dependency "org.springframework.security:spring-security-test:${securityTestVersion}"
