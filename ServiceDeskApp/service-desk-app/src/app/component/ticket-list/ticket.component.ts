@@ -104,7 +104,7 @@ export class TicketComponent implements OnInit {
           if (data) {
             this.notificationService.success("Saved Completed","Saved")
           }
-          this.clearAndSearch();
+          this.search();
         },
         error => {
           this.notificationService.error("Saved Failed " + error.toString(),"Failed")
@@ -116,7 +116,7 @@ export class TicketComponent implements OnInit {
           if(data){
             this.notificationService.success("Update Completed","Update")
           }
-          this.clearAndSearch();
+          this.search();
         },
         error =>{
           this.notificationService.error("Update Failed " + error.toString(),"Failed")
@@ -135,7 +135,7 @@ export class TicketComponent implements OnInit {
         if(data){
           this.notificationService.success("Delete Completed","Delete")
         }
-        this.clearAndSearch();
+        this.search();
       },
       error =>{
         this.notificationService.error("Delete Failed" + error.toLocaleString(),"Failed")

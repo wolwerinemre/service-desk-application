@@ -38,7 +38,7 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="summary" let-rowData>
-    <span *ngIf="totalRecords!='0'&& !loading">Total: {{totalRecords}} record(s)</span>
+    <span *ngIf="totalRecords!=0 && !loading">Total: {{totalRecords}} record(s)</span>
   </ng-template>
 </p-table>
 <p-dialog header="Ticket Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [dismissableMask]="true" [closeOnEscape]="true" [maximizable]="true" [style]="{width: '550px'}">
